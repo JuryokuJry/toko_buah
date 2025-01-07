@@ -1,0 +1,38 @@
+plugins {
+    id "com.android.application"
+    id 'com.google.gms.google-services' // Plugin untuk Firebase
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.toko_buah"
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId = "com.example.toko_buah"  // Pastikan sesuai dengan ID aplikasi Anda
+        minSdkVersion 23
+        targetSdkVersion flutter.targetSdkVersion
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug // Jangan lupa konfigurasi untuk signing
+        }
+    }
+}
+
+// Tambahkan plugin google-services di akhir file
+apply plugin: 'com.google.gms.google-services' // Ini sangat penting untuk Firebase
